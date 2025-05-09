@@ -1,3 +1,11 @@
+# Link para teste da API: 
+http://localhost:8080/swagger-ui/index.html
+
+# Link para Cadastro de Time:
+[Cadastro de Time](http://localhost:8080/cadastro/formulario-time)
+# Link para Cadastro de Composição de Time:
+[Cadastro de Composição de Time](http://localhost:8080/cadastro/integrante-time)
+
 
 # Desafio de Desenvolvimento
 
