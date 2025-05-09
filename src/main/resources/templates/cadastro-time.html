@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Time</title>
+</head>
+<body>
+    <h1>Cadastro de Time</h1>
+
+    <form action="/cadastro/cadastrar-time" method="post">
+        <!-- Seleção de Time -->
+        <label for="timeId">Time:</label>
+        <select name="timeId" id="timeId">
+            <option value="">Selecione um time</option>
+            <th:block th:each="time : ${times}">
+                <option th:value="${time.id}" th:text="${time.nome}"></option>
+            </th:block>
+        </select>
+        <br><br>
+
+        <!-- Seleção de Integrantes -->
+        <label for="integranteIds">Integrantes:</label>
+        <select name="integranteIds" id="integranteIds" multiple>
+            <th:block th:each="integrante : ${integrantes}">
+                <option th:value="${integrante.id}" th:text="${integrante.nome}"></option>
+            </th:block>
+        </select>
+        <br><br>
+
+        <!-- Botão de Submissão -->
+        <button type="submit" th:disabled="${mensagem != null}">Cadastrar Time</button>
+    </form>
+    
+        <!-- Botão Voltar com Refresh da Página -->
+	<button onclick="window.location.href='formulario-time';">Voltar</button>
+
+    <!-- Mensagem de Feedback -->
+    <p th:if="${mensagem}" th:text="${mensagem}"></p>
+</body>
+</html>

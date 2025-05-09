@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Integrante no Time</title>
+</head>
+<body>
+    <h1>Cadastro de Composição de Time</h1>
+
+    <form action="/cadastro/integrante-time" method="post">
+        <!-- Campo de Seleção para Integrantes -->
+        <label for="integrante">Integrante:</label>
+        <select name="integranteId" id="integrante">
+            <option value="">Selecione um integrante</option>
+            <th:block th:each="i : ${integrantes}">
+                <option th:value="${i.id}" th:text="${i.nome}"></option>
+            </th:block>
+        </select>
+        <br><br>
+
+        <!-- Campo de Seleção para Times -->
+        <label for="time">Time:</label>
+        <select name="timeId" id="time">
+            <option value="">Selecione um time</option>
+            <th:block th:each="t : ${times}">
+                <option th:value="${t.id}" th:text="${t.nome}"></option>
+            </th:block>
+        </select>
+        <br><br>
+
+        <!-- Campo de Função no Time -->
+        <label for="funcaoNoTime">Função no Time:</label>
+        <input type="text" name="funcaoNoTime" id="funcaoNoTime" required>
+        <br><br>
+
+        <!-- Botão de Submissão -->
+        <button type="submit" th:disabled="${mensagem != null}">Cadastrar</button>
+    </form>
+    
+    <!-- Botão Voltar com Refresh da Página -->
+	<button onclick="window.location.href='formulario-integrante-time';">Voltar</button>
+
+    <!-- Mensagem de Feedback (caso necessário) -->
+    <p th:if="${mensagem}" th:text="${mensagem}"></p>
+</body>
+</html>
